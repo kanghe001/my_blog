@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="pagination">
+      <ul id="pagination-flickr">
+      {% if artical_list.has_previous %}
+          <li class="previous"><a href="?page={{ artical_list.previous_page_number }}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.mouth %}&mouth={{ request.GET.mouth }}{% endif %}">&laquo; 上一页</a></li>
+          {% else %}
+          <li class="previous-off">&laquo;上一页</li>
+      {% endif %}
+      <li class="active">{{ artical_list.number }}/{{ artical_list.paginator.num_pages }}
+      {% if artical_list.has_next %}
+      <li class="next"><a href="?page={{ artical_list.next_page_number }}{% if request.GET.year %}&year={{ request.GET.year }}{% endif %}{% if request.GET.mouth %}&mouth={{ request.GET.mouth }}{% endif %}">下一页&raquo;</a></li>
+      {% else %}
+      <li class="next-off"> 下一页 &raquo;</li>
+      {% endif %}
+</ul>
+  </div>
+</body>
+</html>
